@@ -17,17 +17,19 @@ def serialize_animal(animal_obj):
     """ Serialization of a single animal object """
     output = ''
     output += '<li class="cards__item">\n'
-    output += f'<div class="card__title">{animal_obj["name"]}</div>\n'
-    output += '<p class="card__text">\n' 
+    output += f'<div class="card__title" style="margin: 10px;">{animal_obj["name"]}</div>\n'
+    output += '<div class="card__text">\n' 
+    output += '<ul>\n'
     if "genus" in animal_obj["taxonomy"]:
-        output += f'<strong>Genus:</strong> {animal_obj["taxonomy"]["genus"]}<br/>\n'
-    output += f'<strong>Diet:</strong> {animal_obj["characteristics"]["diet"]}<br/>\n'
-    output += f'<strong>Location:</strong> {animal_obj["locations"][0]}<br/>\n'
+        output += f'<li><strong>Genus:</strong> {animal_obj["taxonomy"]["genus"]}</li>\n'
+    output += f'<li><strong>Diet:</strong> {animal_obj["characteristics"]["diet"]}</li>\n'
+    output += f'<li><strong>Location:</strong> {animal_obj["locations"][0]}</li>\n'
     if "type" in animal_obj["characteristics"]:
-        output += f'<strong>Type:</strong> {animal_obj["characteristics"]["type"]}<br/>\n' 
+        output += f'<li><strong>Type:</strong> {animal_obj["characteristics"]["type"]}</li>\n' 
     if "color" in animal_obj["characteristics"]:
-        output += f'<strong>Color:</strong> {animal_obj["characteristics"]["color"]}<br/>\n'
-    output += '</p>'    
+        output += f'<li><strong>Color:</strong> {animal_obj["characteristics"]["color"]}</li>\n'
+    output += '</ul>'   
+    output += '</div>' 
     output += '</li>\n'   
     return output
     
