@@ -14,15 +14,19 @@ def read_html(file_path):
 
 
 def serialize_animal(animal_obj):
-    """ Serialization of a single animal onject """
+    """ Serialization of a single animal object """
     output = ''
     output += '<li class="cards__item">\n'
     output += f'<div class="card__title">{animal_obj["name"]}</div>\n'
     output += '<p class="card__text">\n' 
+    if "genus" in animal_obj["taxonomy"]:
+        output += f'<strong>Genus:</strong> {animal_obj["taxonomy"]["genus"]}<br/>\n'
     output += f'<strong>Diet:</strong> {animal_obj["characteristics"]["diet"]}<br/>\n'
     output += f'<strong>Location:</strong> {animal_obj["locations"][0]}<br/>\n'
     if "type" in animal_obj["characteristics"]:
         output += f'<strong>Type:</strong> {animal_obj["characteristics"]["type"]}<br/>\n' 
+    if "color" in animal_obj["characteristics"]:
+        output += f'<strong>Color:</strong> {animal_obj["characteristics"]["color"]}<br/>\n'
     output += '</p>'    
     output += '</li>\n'   
     return output
