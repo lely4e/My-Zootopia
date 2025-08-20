@@ -17,11 +17,12 @@ def get_animal_info(data):
     """ Displays name, diet, location and type of the animal from the data """
     output = ""
     for animal in data:
-        output += f"Name: {animal["name"]}\n" 
-        output += f"Diet: {animal["characteristics"]["diet"]}\n"
-        output += f"Location: {animal["locations"][0]}\n"
+        output += '<li class="cards__item">'
+        output += f"Name: {animal["name"]}<br/>\n" 
+        output += f"Diet: {animal["characteristics"]["diet"]}<br/>\n"
+        output += f"Location: {animal["locations"][0]}<br/>\n"
         if "type" in animal["characteristics"]:
-            output += f"Type: {animal["characteristics"]["type"]}\n"         
+            output += f"Type: {animal["characteristics"]["type"]}<br/>\n"         
     return output
             
 
