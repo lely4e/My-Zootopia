@@ -3,13 +3,13 @@ import json
 
 def load_data(file_path):
     """ Loads a JSON file """
-    with open(file_path, "r") as handle:
+    with open(file_path, "r", encoding="utf-8") as handle:
         return json.load(handle)
 
 
 def read_html(file_path):
     """ Read an HTML file """
-    with open(file_path, "r") as handle:
+    with open(file_path, "r", encoding="utf-8") as handle:
         return handle.read()
 
 
@@ -59,7 +59,7 @@ def filtered_animals(data, guess):
 
 def new_html_data(file_path, filtered_animals_data):
     """ Creating a new HTML file with the necessery information """
-    with open(file_path, "w") as handle:
+    with open(file_path, "w", encoding="utf-8") as handle:
         html_data = read_html("animals_template.html")
         animals_info = get_animal_info(filtered_animals_data)
         new = html_data.replace("__REPLACE_ANIMALS_INFO__", animals_info)
@@ -68,10 +68,10 @@ def new_html_data(file_path, filtered_animals_data):
     
 def error_page(file_path):
     """ Renders an error page """
-    with open(file_path, "w") as handle:
+    with open(file_path, "w", encoding="utf-8") as handle:
         output = ''
         output += '<li class="cards__item">\n'
-        output += f'<div class="card__title" style="margin: 10px;">Cards are not found!</div>\n'
+        output += '<div class="card__title" style="margin: 10px;">Cards are not found!</div>\n'
         output += '</div>'
         output += '</li>\n'
 
